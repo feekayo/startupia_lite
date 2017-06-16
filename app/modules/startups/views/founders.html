@@ -1,0 +1,125 @@
+<span class="full greyed fullWidth">
+        <md-card class="padded10 noBottomMargin blueBG" layout="column">
+            <h3 class="whiteText">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg" class="whiteText"></md-icon> 
+                Founders
+            </h3>
+        </md-card>
+        <md-card class="padded20 noTopMargin md-whiteframe-z2">
+            <br/>
+            <br/>
+            <!--<div ng-repeat="founder in startup_founders" class="padded20 md-whiteframe-z2">
+                {{founder}}
+                <br/>
+                <br/>
+                {{founder.personal[0].fullname}}
+            </div>-->
+            <div>
+                <span ng-repeat="founder in startup_founders" flex layout="column">
+                    <md-divider></md-divider>
+                    <div class="leftPadded padded10" layout="row" flex ng-hide="founder.personal[0].fullname">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_mail.svg" class="blueText squareImage70"></md-icon>
+                        <span layout="column" class="leftPadded">    
+                            <h3>{{founder.user_email}}</h3>
+                            <label class="text-muted">Mail Invite Sent</label>
+                        </span>
+                        <span flex></span>
+                        <div class="autopadded" ng-show="startup_admin">
+                            <md-button class="md-accent md-focused" ng-click="showDeleteFounder(ev,founder.user_email,startup_data.id)">
+                                rescind
+                                <md-icon class="redText" md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon>
+                            </md-button>
+                        </div>
+                    </div>
+                    <div class="leftPadded padded10" layout="row" ng-show="founder.personal[0].fullname">
+                        <img ng-src="{{founder.personal[0].dp}}" class="smallAvatar topAndBottomPadded"/>
+                        <label layout="column" class="leftPadded">
+                            <label class="redText" ng-show="!founder.confirmed">
+                                *Invite not yet accepted*
+                            </label>
+                            <h3>{{founder.personal[0].fullname}}</h3>
+                            <label class="text-muted">{{founder.personal[0].bio}}</label>
+                        </label>
+                        <span flex></span>
+                        <div class="autopadded" ng-show="startup_admin && !founder.confirmed">
+                            <md-button class="md-accent md-focused" ng-click="showDeleteFounder(ev,founder.user_email,startup_data.id)">
+                                rescind
+                                <md-icon class="redText" md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon>
+                            </md-button>
+                        </div>
+                        <span class="autopadded" ng-show="(user_id==founder.personal[0].id) && !founder.confirmed">
+                            <md-button class="autopadded md-raised">
+                                ACCEPT 
+                                <md-icon class="blueText" md-svg-src="modules/accounts/img/svg/ic_thumb_up.svg"></md-icon>
+                            </md-button>
+
+                            <md-button class="autopadded md-raised" ng-click="showDeleteFounder(ev,founder.user_email,startup_data.id)">
+                                DECLINE 
+                                <md-icon class="redText" md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon>
+                            </md-button>
+                        </span>
+                        <md-menu ng-show="(user_id==founder.personal[0].id) && !startup_admin && founder.confirmed">
+                            <md-button aria-label="Open" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                                <md-icon md-menu-origin md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+                            </md-button>
+                            <md-menu-content width="3">
+                                <md-menu-item>
+                                    <md-button md-menu-align-target ng-click="showDeleteFounder(ev)">
+                                        <md-icon md-svg-src="modules/accounts/img/svg/ic_delete.svg"></md-icon>
+                                        Delete
+                                    </md-button>
+                            </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </span>
+                <md-divider></md-divider>
+                <br/>
+                <br/>
+            </div>
+            
+            <div class="padded20" layout="column">
+                <h4> <md-icon md-svg-src="modules/accounts/img/svg/ic_help_outline.svg" class="redText" style="height:30px;width:30px"></md-icon>Self Help</h4>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Who is a Co-Founder?</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> How to find Co-Founders</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> How to resolve conflict</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+            </div>
+        </md-card>
+        <md-button class="md-fab float-button" ng-click="goto('startup.addfounders')">
+            <md-icon md-svg-src="modules/accounts/img/svg/ic_person_add.svg"></md-icon>
+        </md-button>
+</span> 

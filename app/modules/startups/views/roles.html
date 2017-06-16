@@ -1,0 +1,126 @@
+<span class="full greyed fullWidth">
+    <md-toolbar style="position:fixed" md-theme="lightTheme" class="fullWidth md-whiteframe-z2">
+        <div class="md-toolbar-tools" layout="row">
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_arrow_back.svg"></md-icon>
+            </md-button>
+            Roles
+            <span flex></span>
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="greyed full">
+        <md-card class="topPadded70 padded10">
+            <h3>Management Roles</h3>
+            <div layout="column" class="padded10">
+                <div class="leftPadded" layout="row">
+                    <label class="padded10" layout="column">
+                        <h4>
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg"></md-icon>
+                            Fikayomi, Sanni
+                        </h4>
+                        <small>CEO (Super admin)</small>
+                        <small>CTO (Head Product Developer)</small>
+                        <small>CFO (Financial Manager)</small>
+                        <small>COO (Business Manager)</small>
+                    </label>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="showAddForm=true" ng-hide="showAddForm">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_create.svg" class="blueText"></md-icon>
+                    </md-button>
+                </div>
+                <md-divider></md-divider>
+                <div class="leftPadded" layout="row">
+                    <label class="padded10" layout="column">
+                        <h4>
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg"></md-icon>
+                            Osagie, Omonzokpia
+                        </h4>
+                    </label>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="showAddForm=true" ng-hide="showAddForm">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_create.svg" class="blueText"></md-icon>
+                    </md-button>
+                </div>
+                <md-divider></md-divider>
+                <div class="leftPadded" layout="row">
+                    <label class="padded10" layout="column">
+                        <h4>
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg"></md-icon>
+                            Shalom, Owolabi
+                        </h4>
+                    </label>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="showAddForm=true" ng-hide="showAddForm">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_create.svg" class="blueText"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+            
+            <div class="padded10 md-whiteframe-z2" layout="column" md-theme="lightTheme" ng-show="showAddForm">
+                <div layout="row">
+                    <label class="text-muted autopadded"><big>Add Co-Founder</big></label>
+                    <span flex></span>
+                    <md-button ng-click="showAddForm=false" class="md-icon-button" ng-hide="showStage1">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_close.svg" class="redText"></md-icon>
+                    </md-button>
+                </div>
+                <div>
+                    <md-input-container class="md-icon-float" flex>
+                        <label>Input co-founder's email address on startupia</label>
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_mail.svg" class="name"></md-icon>
+                        <input ng-model="co_founder.email" type="text" required>            
+                    </md-input-container>
+                    <label class="text-muted">
+                        <small>A mail notification will be sent to valid email address</small>
+                    </label>
+                    <br/>
+                    <md-button class="md-raised md-primary right-float">Send Email</md-button>
+                </div>
+            </div>
+            
+            <div class="padded20" layout="column">
+                <h4> <md-icon md-svg-src="modules/accounts/img/svg/ic_help_outline.svg" class="redText" style="height:30px;width:30px"></md-icon>Self Help</h4>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Startup Management Concepts</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Who to do what?</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Matters arising</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+            </div>
+        </md-card>
+    </md-content>
+</span> 

@@ -1,0 +1,20 @@
+<div ng-controller="DeleteFounderController" class="padded20 width600">
+        
+        <h3>Remove Founder</h3>
+        <form class="padded20" ng-submit="delete()" name="loginForm">
+            <md-input-container class="md-icon-float" > 
+                <!-- Use floating label instead of placeholder -->
+                <label>Reason for leaving</label>
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="name"></md-icon>
+                <textarea name="reason" ng-model="reason" columns="4" required></textarea>
+            </md-input-container>
+            <label class="text-muted">
+                <small>This would be included in a company wide Memo item</small>
+            </label>
+            <span layout="row" flex>
+                <span flex></span>
+                <md-button ng-hide="removing" class="md-mini md-fab"><md-icon md-svg-src="modules/accounts/img/svg/ic_delete.svg" class="name"></md-icon></md-button>
+                <md-progress-circular class="md-accent" md-diameter="25" ng-show="removing"></md-progress-circular>
+            </span>
+        </form>
+</div>

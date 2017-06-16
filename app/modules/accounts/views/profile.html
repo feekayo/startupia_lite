@@ -1,0 +1,103 @@
+<span class="full greyed fullWidth">
+    <md-toolbar style="position:fixed" class="fullWidth md-whiteframe-z2">
+        <div class="md-toolbar-tools" layout="row">
+            My Dashboard
+            <span flex></span>
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    
+    <md-content class="greyed">
+        <section class="width80 centered topPadded30" layout="row" layout-sm="column">
+            
+            
+            <span layout="column" class="topPadded" flex-sm="100" flex="30">
+                <md-card> 
+                    <span flex layout="row">
+                        <span flex></span>
+                        <md-button class="md-fab md-mini" ng-click="editProfile=true" ng-hide="editProfile" style="background:#009688">
+                           <md-icon md-svg-src="modules/accounts/img/svg/ic_create.svg"></md-icon> 
+                        </md-button>
+                        <md-button class="md-fab md-mini" ng-click="editProfile=false" ng-show="editProfile" style="background:#c62828">
+                           <md-icon md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon> 
+                        </md-button>
+                    </span>
+                    <div flex class="padded10">                    
+                        <center>
+                            <img ng-src="{{session_data.dp}}" class="bigAvatar"/>
+                        </center>
+                        <div layout="column">
+                            <center><h3>{{session_data.fullname}}</h3></center>
+                            <center><label class="text-muted">{{session_data.bio}}</label></center>
+                        </div>
+                        <div ng-show="editProfile" class="md-whiteframe-z2">
+                            <md-tabs md-border-bottom md-dynamic-height>
+                                <md-tab>
+                                    <md-tab-label>Bio</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="updateBio" ng-submit="editBio()">
+                                            <md-input-container class="md-icon-float" >
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Bio</label>
+                                                <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="name"></md-icon>
+                                                <textarea name="bio" ng-model="session_data.bio" columns="4" md-maxlength="50" required></textarea>
+                                            </md-input-container>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingBio || !showEditBioButton">SAVE</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingBio"></md-progress-circular>
+                                        </form>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab>
+                                    <md-tab-label>Dp</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="editDp" ng-submit="editDP()">
+                                            <md-input-container class="md-icon-float">
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Image Url</label>
+                                                <md-icon md-svg-src="modules/accounts/img/svg/ic_photo_camera.svg" class="name"></md-icon>
+                                                <input name="dp_url" ng-model="session_data.dp" type="url" required>
+                                            </md-input-container>
+                                            <label class="text-muted">
+                                                <small>To upload a new display picture <a href="https://postimg.org" class="blueText">click here</a> and copy the url generated. It is advisable to crop image into a square before upload</small>
+                                            </label>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingDp || !showEditDpButton">SAVE</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingDp"></md-progress-circular>
+                                        </form>
+                                    </md-content>                            
+                                </md-tab>
+
+                            </md-tabs>
+                        </div>
+                    </div>
+                </md-card>
+                <md-card class="padded20">
+                    <span layout="column">
+                        <div class="greyHover padded20" ng-click="goto('profile.startups')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_business.svg"></md-icon>
+                            <big class="leftPadded">Startups</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="goto('profile.roles')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_accessibility.svg"></md-icon>
+                            <big class="leftPadded">Roles</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="goto('profile.tasks')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_work.svg"></md-icon>
+                            <big class="leftPadded">Tasks</big>
+                        </div>
+                    </span>
+                </md-card>
+            </span>
+            <span flex class="full">
+                <div ui-view flex class="full"></div>
+            </span>            
+                      
+        </section>
+        <md-button class="md-fab float-button" ng-click="showAdd(ev)">
+            <md-icon md-svg-src="modules/accounts/img/svg/ic_add.svg"></md-icon>
+        </md-button>        
+    </md-content> 
+</span>

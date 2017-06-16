@@ -1,0 +1,103 @@
+<span class="full greyed fullWidth">
+    <md-toolbar style="position:fixed" md-theme="lightTheme" class="fullWidth md-whiteframe-z2">
+        <div class="md-toolbar-tools" layout="row">
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_arrow_back.svg"></md-icon>
+            </md-button>
+            Product Development
+            <span flex></span>
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="greyed full">
+        <md-card class="topPadded70 padded10">
+            <h3>Manage Product Development</h3>
+            <span class="topMargin20 padded10" md-theme="lightTheme" layout="column">
+                    <div layout="column" flex class="padded20">
+                        <span layout="row"  layout-sm="column" flex>
+                            <span>
+                                <md-icon md-svg-src="modules/accounts/img/svg/ic_face.svg" style="height:40px;width:40px"></md-icon> 
+                                <label><big>Fikayomi, Sanni</big></label>
+                            </span>
+                            <span flex></span>
+                            <label class="text-muted" flex-sm="100" flex="20">
+                                30% <md-progress-linear class="md-accent" md-mode="determinate" value="30"></md-progress-linear>
+                            </label>
+                        </span>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="column" flex class="padded20">
+                        <span layout="row"  layout-sm="column" flex>
+                            <span>
+                                <md-icon md-svg-src="modules/accounts/img/svg/ic_face.svg" style="height:40px;width:40px"></md-icon> 
+                                <label><big>Osagie, Omonzokpia</big></label>
+                            </span>
+                            <span flex></span>
+                            <label class="text-muted" flex-sm="100" flex="20">
+                                30% <md-progress-linear class="md-accent" md-mode="determinate" value="30"></md-progress-linear>
+                            </label>
+                        </span>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="column" flex class="padded20">
+                        <span layout="row"  layout-sm="column" flex>
+                            <span>
+                                <md-icon md-svg-src="modules/accounts/img/svg/ic_face.svg" style="height:40px;width:40px"></md-icon> 
+                                <label><big>Shalom, Owolabi</big></label>
+                            </span>
+                            <span flex></span>
+                            <label class="text-muted" flex-sm="100" flex="20">
+                                30% <md-progress-linear class="md-accent" md-mode="determinate" value="30"></md-progress-linear>
+                            </label>
+                        </span>
+                    </div>
+                </span>
+            
+            <div class="padded20" layout="column">
+                <h4> <md-icon md-svg-src="modules/accounts/img/svg/ic_help_outline.svg" class="redText" style="height:30px;width:30px"></md-icon>Self Help</h4>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Startup Management Concepts</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Who to do what?</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+                <div layout="row" class="padded10">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_description.svg" class="tealText" style="height:25px;width:25px"></md-icon>
+                    <label class="autopadded" style="font-size:16px"> Matters arising</label>
+                        <span flex></span>
+                        <md-button ng-click="gotoStage('stage1')" class="md-icon-button" ng-hide="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_more_48px.svg" class="blueText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                        <md-button ng-click="showStage1=false" class="md-icon-button" ng-show="showStage1">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_expand_less_48px.svg" class="redText" style="height:25px;width:25px"></md-icon>
+                        </md-button>
+                    </div>
+                <md-divider></md-divider>
+            </div>
+            <md-button class="md-fab float-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_add.svg"></md-icon>
+            </md-button>
+        </md-card>
+    </md-content>
+</span> 

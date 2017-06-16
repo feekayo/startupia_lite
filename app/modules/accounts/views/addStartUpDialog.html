@@ -1,0 +1,43 @@
+<div class="padded20 width600" md-theme="lightTheme" layout="column" ng-controller="ProfileController">
+    <span ng-hide="showLoading">
+        <div flex layout="row">
+            <h3><b>Add Startup</b></h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="closeDialog()">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon>
+            </md-button>
+        </div>
+        <div class="padded10">
+            <form ng-submit="addStartUp()" name="addCertificateForm">
+                <md-input-container>
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Business Name</label>
+                    <input name="business_name" ng-model="business.name" type="text" required>
+                </md-input-container>
+                <md-input-container>
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Corporate Website</label>
+                    <input name="business_url" ng-model="business.url" type="url" required>
+                </md-input-container>
+                <md-input-container>
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Business Category</label>
+                    <md-select ng-required ng-model="business.category_id">
+                        <md-option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <span layout="row" flex>
+                    <span flex></span>
+                    <md-button class="md-accent md-raised">
+                        ADD
+                    </md-button>
+                </span>    
+            </form>
+        </div>
+    </span>
+    <div ng-show="showLoading" layout="row">
+        <md-progress-circular class="md-accent"></md-progress-circular>
+    
+        <div style="padding:20px;padding-top:40px">Adding Startup</div>
+    </div>
+</div>

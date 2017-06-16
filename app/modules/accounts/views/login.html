@@ -1,0 +1,54 @@
+<div class="full">
+    <md-toolbar class="md-whiteframe-z2">
+        <h2 class="leftPadded whiteText">Startupia 
+            <small>
+                <small><label class="whiteText">... meet, create, innovate</label></small>
+            </small>
+        </h2>
+    </md-toolbar>
+    <br/>
+<div layout="row">
+    <span flex-sm="0" flex="65"></span>
+    <md-card layout="column" class="topPadded30" flex="30" flex-sm="100">
+        <div class="padded20" layout="column">
+            <label class="antialized blueText"><big><big><big><b>Login</b></big></big></big></label>
+            <form class="padded20" ng-submit="login()" name="loginForm">
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Email</label>
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_mail.svg" class="name"></md-icon>
+                    <input name="email" ng-model="loginData.email" type="email" required>
+                </md-input-container>
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Password</label>
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_lock.svg" class="name"></md-icon>
+                    <input name="password" ng-model="loginData.password" type="password" required >
+                </md-input-container>
+
+                <span layout="row">
+                    <md-checkbox>Keep me signed in</md-checkbox>
+                    <span flex></span>
+                    <md-button class="md-primary md-raised">Login</md-button>
+                </span>
+                <center>
+                    <br/>
+                    <div layout="row">
+                        <a class="blueText text-center" ng-click="showForgotDialog($event)"><small>Forgot password?</small></a>
+                        <span flex></span>
+                        <a class="blueText text-center" ui-sref="signup"><small>Register</small></a>
+                    </div>
+                </center>
+            </form>
+        </div>
+    </md-card>
+</div>
+    
+    <div class="footer whiteBG md-whiteframe-z2 padded10" layout="column">
+        <div class="autopadded" layout="row">
+            <md-button class="md-icon-button" >f</md-icon></md-button>
+            <md-button class="md-icon-button" >t</md-button>
+            <md-button class="md-icon-button" >ig</md-button>
+        </div>
+    </div>
+</div>

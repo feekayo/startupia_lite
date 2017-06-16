@@ -1,0 +1,194 @@
+<span class="full fullWidth">
+    <md-card class="padded10 noBottomMargin blueBG" layout="column">
+        <h3 class="whiteText">
+            <md-icon md-svg-src="modules/accounts/img/svg/ic_list.svg" class="whiteText"></md-icon> 
+            Activity Log
+        </h3>
+    </md-card>
+    <md-card class="padded10 noTopMargin" flex layout="column">
+        <span layout="row">
+            <span flex></span>
+            <label class="text-muted">3 minutes ago</label>
+        </span>
+        <span layout="row">
+            <img src="modules/accounts/img/material/avatar.jpg" class="smallAvatar topAndBottomPadded"/>
+            <span layout="column" flex class="leftPadded topAndBottomPadded">
+                <big><b>Fikayomi, Sanni</b></big>
+                <span layout="row" layout-sm="column">
+                    <h4 flex="80" flex-sm="100">
+                        Startupia development tasks <small><label class="text-muted">updated to <b class="purpleText">63 Tasks</b></label></small>
+                    </h4>
+                    <label class="text-muted topAndBottomPadded" flex-sm="50" flex="20">
+                        <small>30%</small> 
+                        <md-progress-linear class="md-accent" md-theme="lightTheme" md-mode="determinate" value="30"></md-progress-linear>
+                    </label>
+                </span>
+            </span>
+        </span>
+    </md-card> 
+    <md-card class="padded10 noTopMargin" flex layout="column">
+        <span layout="row">
+            <span flex></span>
+            <label class="text-muted">3 minutes ago</label>
+        </span>
+        <span layout="row">
+            <img src="modules/accounts/img/material/avatar.jpg" class="smallAvatar topAndBottomPadded"/>
+            <span layout="column" flex class="leftPadded topAndBottomPadded">
+                <big><b>Fikayomi, Sanni</b></big>
+                <span layout="row" layout-sm="column">
+                    <h4>
+                        Startupia Business Policy Deck: <small><label class="text-muted">Requisition Policy <b class="purpleText">Added</b></label></label>
+                    </h4>
+                </span>
+            </span>
+        </span>
+    </md-card>  
+    <md-card class="padded10 noTopMargin" flex layout="column">
+        <span layout="row">
+            <span flex></span>
+            <label class="text-muted">3 minutes ago</label>
+        </span>
+        <span layout="row">
+            <img src="modules/accounts/img/material/avatar.jpg" class="smallAvatar topAndBottomPadded"/>
+            <span layout="column" flex class="leftPadded topAndBottomPadded">
+                <big><b>Fikayomi, Sanni</b></big>
+                <span layout="row" layout-sm="column">
+                    <h4>
+                        Startupia development tasks: <small><label class="text-muted">updated to <b class="purpleText">63 Tasks</b></label></small>
+                    </h4>
+                </span>
+            </span>
+        </span>
+    </md-card> 
+</span>
+<!--<span class="full greyed fullWidth">
+    <md-toolbar style="position:fixed" md-theme="lightTheme" class="fullWidth">
+        <div class="md-toolbar-tools" layout="row">
+            <md-button aria-label="openMenu" class="md-icon-button" ng-click="goto('profile')">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_arrow_back.svg"></md-icon>
+            </md-button>
+            Startup Dashboard
+            <span flex></span>
+            <md-button aria-label="openMenu"class="md-icon-button">
+                <md-icon md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content class="greyed full">
+        <span layout="column" ng-show="errorMsg || !startup_data">
+            <md-card class="padded20 topPadded70 md-whiteframe-z2">
+                <div layout="row" ng-show="!startup_data && !errorMsg">
+                    <md-progress-circular class="md-accent"></md-progress-circular>
+
+                    <div style="padding:20px;padding-top:40px">Setting environment up</div>
+                </div>
+                <div layout="column" ng-show="errorMsg && !startup_data">
+                    <span layout="row">
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="refresh()">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_refresh.svg"></md-icon>
+                        </md-button>
+                    </span>
+                    <center>
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_error.svg" class="redText squareImage50"></md-icon>
+                        <div style="padding:20px"><h4>{{errorMsg}}</h4></div>
+                    </center>
+                </div>
+            </md-card>
+        </span>
+        <span layout="column" class="full"  ng-show="startup_data && !errorMsg">
+            <div class="topPadded full">
+                <div layout="column" class="padded20 blueBG">
+                    <div layout="row">
+                        <br/>
+                        <div layout="row" class=" whiteText centered padded20">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_trending_up.svg" class="whiteText squareImage50"></md-icon>
+                            <span class="leftPadded" layout="column">
+                                <center>
+                                    <h3>{{startup_data.name}}</h3>
+                                    <label>{{startup_type.name}} Company</label>
+                                </center>
+                            </span>
+                        </div>
+                    </div> 
+                </div>
+                <md-card layout="column" class="padded10 width40 centered">
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.founders')">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg" style="height:35px;width:35px"></md-icon>
+                        <label class="padded10" layout="column">
+                            Founders
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.roles')">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_accessibility.svg" style="height:35px;width:35px"></md-icon>
+                        <label class="padded10" layout="column">
+                            Define Founder Roles
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.finance')">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_account_balance_wallet_48px.svg" style="height:35px;width:35px"></md-icon>
+                        <label class="padded10" layout="column">
+                            Manage Finance
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.products')">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_add_box.svg" style="height:35px;width:35px"></md-icon>
+                        <label class="padded10" layout="column">
+                            Develop Products
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.equity')">
+                        <label class="greyText topAndBottomPadded" style="font-size:35px"><b>%</b></label>
+                        <label class="padded10" layout="column">
+                            Manage Equity
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider></md-divider>
+                    <div class="leftPadded greyHover" layout="row" ng-click="goto('startup.business')">
+                        <md-icon md-svg-src="modules/accounts/img/svg/ic_business.svg" style="height:35px;width:35px"></md-icon>
+                        <label class="padded10" layout="column">
+                            Manage Business Policy
+                            <label class="text-muted text-center greyHover"><small><b class="greyText">Admin:</b> Fikayomi, Sanni</small></label>
+                        </label>
+                        <span flex></span>
+                        <md-button class="md-icon-button">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_right.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </md-card>
+            </div>            
+            
+        </span>
+    </md-content>
+</span> 
+-->

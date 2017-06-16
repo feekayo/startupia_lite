@@ -1,0 +1,39 @@
+<span class="full greyed fullWidth">
+        <md-card class="noBottomMargin blueBG padded10" layout="row">
+            <md-button class="md-icon-button" ui-sref="startup.founders">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_chevron_left.svg" class="whiteText"></md-icon> 
+                </md-button>
+            <h3 class="whiteText topAndBottomPadded">
+                Add Founder via email
+            </h3>
+        </md-card>
+        <md-card class="padded20 noTopMargin md-whiteframe-z2">
+            <div ng-hide="addingFounder" class="width80 centered">
+                <h3>Send an Invite</h3>
+                <div class="padded10" layout="column">
+                    <form name="addForm" ng-submit="addFounder()">
+                        <md-input-container class="md-icon-float">
+                            <label>Co-founder's email address on startupia</label>
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_mail.svg" class="name"></md-icon>
+                            <input name="email" type="email" required ng-model="cofounderEmail">                    
+                        </md-input-container> 
+
+                        <label class="text-muted">
+                            <small>A mail invite will be sent to valid email address allowing new Co-Founder access to your dashboard</small>
+                        </label>
+                        <br/>
+                        <span flex layout="row">
+                            <span flex></span>
+                            <md-button class="md-raised md-accent right-float">Send Email</md-button>
+                        </span>
+                    </form>
+                </div>
+                <br/>
+            </div>
+            <div ng-show="addingFounder" class="centered" layout="row">
+                <md-progress-circular class="md-accent"></md-progress-circular>
+
+                <div style="padding:20px;padding-top:40px">Sending Invite</div>            
+            </div>
+        </md-card>
+</span> 

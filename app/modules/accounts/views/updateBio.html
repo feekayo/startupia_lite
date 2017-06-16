@@ -1,0 +1,34 @@
+<div class="padded20 width600" md-theme="lightTheme" layout="column" ng-controller="EditProfileController">
+    <span ng-hide="updateBioLoading && !bioUpdate.successMessage && !bioUpdate.errorMessage">
+    <div flex layout="row">
+        <h3><b>Update Bio</b></h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()">
+            <md-icon md-svg-src="modules/accounts/img/svg/ic_close.svg" style="height:15px;width:15px"></md-icon>
+        </md-button>
+    </div>
+    <div class="padded20" ng-hide="bioUpdate.successMessage||bioUpdate.errorMessage">
+        <form ng-submit="editBio()" name="addCertificateForm">
+            <md-input-container>
+                <!-- Use floating label instead of placeholder -->
+                <label>Bio</label>
+                <input name="bio" ng-model="session_data.bio" type="text" required>
+            </md-input-container>
+            <span layout="row">
+                <span flex></span>
+                <md-button ng-show="showEditBioButton" class="md-fab md-mini fullLeftMargin">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_create.svg"></md-icon>
+                </md-button>
+            </span>
+        </form>
+    </div>
+    </span>
+    <div ng-show="updateBioLoading" layout="row">
+        <md-progress-circular class="md-accent"></md-progress-circular>
+    
+        <div style="padding:20px;padding-top:40px">Updating Bio</div>
+    </div>
+    <div class="padded20" ng-show="bioUpdate.successMessage||bioUpdate.errorMessage">
+        <center><h4>{{bioUpdate.successMessage}} {{bioUpdate.errorMessage}}</h4></center>
+    </div>
+</div>

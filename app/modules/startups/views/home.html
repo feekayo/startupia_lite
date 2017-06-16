@@ -1,0 +1,187 @@
+<!--content holder-->
+<div class="full fullWidth" layout="column">
+    <section layout="row" class="full fullWidth">
+        <md-toolbar style="position:fixed" md-theme="lightTheme" class="fullWidth md-whiteframe-z2">
+            <div class="md-toolbar-tools" layout="row">
+                <md-button aria-label="openMenu" class="md-icon-button" ng-click="goto('profile.tasks')">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_arrow_back.svg"></md-icon>
+                </md-button>
+                Startup Dashboard
+                <span flex></span>
+                <md-button aria-label="openMenu"class="md-icon-button">
+                    <md-icon md-svg-src="modules/accounts/img/svg/ic_more_vert.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+   
+    <md-content class="greyed fullWidth full">
+        <div class="centered topAndBottomPadded topPadded full" ng-hide="startup_data">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <center ng-hide="errorMsg">
+                <md-progress-circular class="autopadded md-accent"></md-progress-circular>
+            </center>
+            <center ng-hide="errorMsg">
+                <h3 class="autopadded">Setting Up...</h3></center>
+            <center ng-show="errorMsg">
+                <md-card class="width30" layout="column">
+                    <span layout="row">
+                        <span flex></span>
+                        <md-button aria-label="openMenu" class="md-icon-button" ng-click="refresh()">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_refresh.svg"></md-icon>
+                        </md-button>
+                    </span>
+                    <center><h3 class="redText padded20">{{errorMsg}}</h3>
+                </md-card>
+            </center>
+        </div>
+            
+        <section ng-show="startup_data" class="width80 centered topPadded30" layout="row" layout-sm="column">
+            <span layout="column" class="topPadded" flex-sm="100" flex="30">
+                <md-card class="padded10">
+                    <span layout="row">
+                        <md-button class="md-icon-button" ng-click="goto('startup.dashboard')">
+                           <md-icon md-svg-src="modules/accounts/img/svg/ic_list.svg"></md-icon> 
+                        </md-button>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="showEditStartup=true" ng-hide="showEditStartup || !startup_admin">
+                           <md-icon class="blackText" md-svg-src="modules/accounts/img/svg/ic_create.svg"></md-icon> 
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="showEditStartup=false" ng-show="showEditStartup">
+                           <md-icon class="redText" md-svg-src="modules/accounts/img/svg/ic_close.svg"></md-icon> 
+                        </md-button>
+                    </span>
+                    <span layout="column" class="padded20">
+                        
+                        <div layout="row" class="centered">
+                            <img ng-src="{{startup_data.logo}}" class="bigSquareImage"/>
+                        </div>
+                        <div layout="column">
+                            <center><h3>{{startup_data.name}}<small> <a class="blueText" target="_blank" href="{{startup_data.url}}">Website</a></small></h3></center>
+                            <center><label class="text-muted">{{startup_type.name}} Company</label></center>
+                        </div>               
+                    </span>
+                    <div ng-show="showEditStartup" class="md-whiteframe-z2">
+                            <md-tabs md-border-bottom md-dynamic-height>
+                                <md-tab>
+                                    <md-tab-label>Name</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="updateCName" ng-submit="editCName()">
+                                            <md-input-container class="md-icon-float" >
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Company Name</label>
+                                                <md-icon md-svg-src="modules/accounts/img/svg/ic_business.svg" class="name"></md-icon>
+                                                <input name="name" ng-model="startup_data.name" required/>
+                                            </md-input-container>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingCName || !showEditCNameButton">Save</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingCName"></md-progress-circular>
+                                        </form>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab>
+                                    <md-tab-label>Logo</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="editDp" ng-submit="editCLogo()">
+                                            <md-input-container class="md-icon-float">
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Image Url</label>
+                                                <md-icon md-svg-src="modules/accounts/img/svg/ic_photo_camera.svg" class="name"></md-icon>
+                                                <input name="dp_url" ng-model="startup_data.logo" type="url" required>
+                                            </md-input-container>
+                                            <label class="text-muted">
+                                                <small>To upload a new logo <a href="https://postimg.org" class="blueText">click here</a> and copy the url generated. It is advisable to crop image into a square before upload</small>
+                                            </label>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingCLogo || !showEditCLogoButton">Save</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingCLogo"></md-progress-circular>
+                                        </form>
+                                    </md-content>                            
+                                </md-tab>
+                                <md-tab>
+                                    <md-tab-label>Website</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="updateCUrl" ng-submit="editCUrl()">
+                                            <md-input-container class="md-icon-float" >
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Company Website URL</label>
+                                                <md-icon md-svg-src="modules/accounts/img/svg/ic_public.svg" class="name"></md-icon>
+                                                <input type="url" name="url" ng-model="startup_data.url" required/>
+                                            </md-input-container>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingCUrl || !showEditCUrlButton">Save</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingCUrl"></md-progress-circular>
+                                        </form>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab>
+                                    <md-tab-label>Type</md-tab-label>
+                                    <md-content class="md-padding">
+                                        <form name="updateBio" ng-submit="editCategory()">
+                                            <md-input-container>
+                                                <!-- Use floating label instead of placeholder -->
+                                                <label>Business Category</label>
+                                                <md-select ng-required ng-model="startup_data.type_id">
+                                                    <md-option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</md-option>
+                                                </md-select>
+                                            </md-input-container>
+                                            <md-button class="md-raised md-accent" ng-hide="updatingCategory || !showEditCategoryButton">Save</md-button>
+                                            <md-progress-circular class="md-accent" md-diameter="25" ng-show="updatingCategory"></md-progress-circular>
+                                        </form>
+                                    </md-content>
+                                </md-tab>
+
+                            </md-tabs>
+                        </div>            
+                </md-card>
+                <md-card class="padded20">
+                    <span layout="column">
+                        <div class="greyHover padded20" ng-click="goto('startup.founders')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_person.svg"></md-icon>
+                            <big class="leftPadded">Founders</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('responsibilities')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_accessibility.svg"></md-icon>
+                            <big class="leftPadded">Human Resources</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('tasks')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_account_balance_wallet_48px.svg"></md-icon>
+                            <big class="leftPadded">Finance Management</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('tasks')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_folder_shared.svg"></md-icon>
+                            <big class="leftPadded">Product Development</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('tasks')">
+                            <label class="greyText topAndBottomPadded" style="font-size:22px"><b>%</b></label>
+                            <big class="leftPadded">Equity Distribution</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('tasks')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_business.svg"></md-icon>
+                            <big class="leftPadded">Business Policy</big>
+                        </div>
+                        <md-divider></md-divider>
+                        <div class="greyHover padded20" ng-click="show('tasks')">
+                            <md-icon md-svg-src="modules/accounts/img/svg/ic_group.svg"></md-icon>
+                            <big class="leftPadded">Customer Relationships</big>
+                        </div>
+                    </span>
+                </md-card>
+            </span>
+            <span flex class="topPadded full">
+                <div ui-view flex class="full"></div>
+            </span>           
+        </section>      
+    </md-content>        
+    </section>
+</div>
